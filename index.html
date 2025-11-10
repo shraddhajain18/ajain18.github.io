@@ -50,12 +50,27 @@
 
   <div class="login-box">
     <h2>Login</h2>
-    <form action="login.php" method="POST">
-      <input type="text" name="username" placeholder="Username" required>
-      <input type="password" name="password" placeholder="Password" required>
+    <form onsubmit="login(); return false;">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
       <input type="submit" value="Login">
     </form>
   </div>
+
+<script>
+function login() {
+  let u = document.getElementById("username").value;
+  let p = document.getElementById("password").value;
+
+  // Yaha apna username/password set karo:
+  if(u === "admin" && p === "1234") {
+    alert("Login Successful!");
+    window.location.href = "home.html"; // Login ke baad open hone wala page
+  } else {
+    alert("Invalid Username or Password");
+  }
+}
+</script>
 
 </body>
 </html>
